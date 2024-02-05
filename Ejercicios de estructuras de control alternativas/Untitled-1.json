@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "recetas.schema.json",
+
+    "title": "recetas.schema,json",
+    "description": "Gramática para recetas",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "nombre":{"type": "string"},
+            "tiempo":{
+                "description": "Tiempo de elaboración",
+                "type": "number"
+            },
+            "inggredientes":{
+                "type": "array",
+                "items": {
+                    "properties": {
+                        "nombre": { "type": "string"},
+                        "cantidad": { "type": "number"},
+                        "unidad": {
+                            "enum": ["pieza", "ml", "gramo"]
+                        }
+                    },
+                    "required":["nombre", "cantidad", "unidad"],
+                    "additionalProperties": false
+                }
+            }
+        }
+    }
+}
